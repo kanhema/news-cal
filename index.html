@@ -12,24 +12,6 @@
 		<link rel="stylesheet" type="text/css" href="css/ajpluscalendar.css" />
 		<link rel="stylesheet" type="text/css" href="css/ajplus-cal.css" />
 		<script src="js/modernizr.custom.63321.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script type="text/javascript">	
-		  	var spData = null;
-  			function doData(json) {
-      			spData = json.feed.entry;
-  			}
-  			var formatData = {};
-  			function readData(parent) {
-	      		for(var r=0; r<spData.length; r+=2) {
-	      			formatData[spData[r]["gs$cell"]["$t"]] = spData[r+1]["gs$cell"]["$t"];
-	      		}
-	      		// console.log (formatData);
-		  	}
-
-		  	$(document).ready(function(){
-		      	readData($("#data"));
-		  	});
-		</script>
 	</head>
 	<body>
 		<div class="container">			
@@ -52,8 +34,6 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jquery.calendario.js"></script>
 		<script type="text/javascript" src="js/data.js"></script>
-		<script src="https://spreadsheets.google.com/feeds/cells/1mtQbSs_yEBvxTKol3Hll3XDQQIZJlR0fpZVRMKcqgww/1/public/values?alt=json-in-script&callback=doData"></script>
-
 		<script type="text/javascript">	
 			$(function() {
 			
@@ -65,7 +45,7 @@
 							}
 
 						},
-						caldata : formatData
+						caldata : codropsEvents
 					} ),
 					$month = $( '#custom-month' ).html( cal.getMonthName() ),
 					$year = $( '#custom-year' ).html( cal.getYear() );
